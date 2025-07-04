@@ -1,0 +1,16 @@
+
+<h1>💬 Comunidad de hábitos</h1>
+
+<form (submit)="publicar($event)">
+  <textarea #contenidoInput placeholder="¿Qué quieres compartir hoy?"></textarea>
+
+  <div class="type-select">
+    <button type="button" class="type-logro" (click)="setTipo('logro')">✅ Cumplí mi hábito</button>
+    <button type="button" class="type-ayuda" (click)="setTipo('ayuda')">🆘 Necesito ayuda</button>
+    <button type="button" class="type-comentario" (click)="setTipo('comentario')">🗨️ Comentario</button>
+  </div>
+
+  <button type="submit" class="submit-btn">Publicar</button>
+</form>
+
+
