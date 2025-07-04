@@ -25,6 +25,8 @@ export class RegistrarComponent {
     console.log('Contenido:', contenido);
     console.log('Tipo:', this.tipo);
 
+    //cambio
+
     this.contenidoInput.nativeElement.value = '';
     this.tipo = 'comentario';
   }
