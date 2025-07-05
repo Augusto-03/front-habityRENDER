@@ -1,4 +1,7 @@
-<app-navbar></app-navbar>
-<app-registrar></app-registrar>
-<app-listar></app-listar>
+<app-navbar *ngIf="mostrarNavbar"></app-navbar>
+<div style="padding: 24px;">
+  <router-outlet></router-outlet>
+</div>
+
+
 

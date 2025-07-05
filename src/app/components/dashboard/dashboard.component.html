@@ -1,0 +1,51 @@
+<header>
+  <div class="logo">Habity</div>
+  <nav>
+    <a (click)="cerrarSesion()">Cerrar sesión</a>
+  </nav>
+</header>
+
+<main>
+  <aside class="left-panel">
+    <nav>
+      <a routerLink="/dashboard">🏠 Inicio</a>
+      <a routerLink="/habitos">📅 Hábitos</a>
+      <a routerLink="/notificaciones">🔔 Notificaciones</a>
+      <a routerLink="/configuracion">⚙️ Configuración</a>
+      <a routerLink="/estadisticas">📊 Estadísticas</a>
+      <a routerLink="/progreso">📈 Progreso</a>
+      <a routerLink="/blog">📝 Blog</a>
+    </nav>
+  </aside>
+
+  <section class="dashboard-main">
+    <h1>Bienvenido, {{ usuario.nombre || '👤' }} 👋</h1>
+    <div class="dashboard-cards">
+      <div class="card">
+        <h3>Edad</h3>
+        <p>{{ usuario.edad }} años</p>
+      </div>
+      <div class="card">
+        <h3>Peso</h3>
+        <p>{{ usuario.peso }} kg</p>
+      </div>
+      <div class="card">
+        <h3>Altura</h3>
+        <p>{{ usuario.altura }} m</p>
+      </div>
+    </div>
+  </section>
+
+  <aside class="right-panel">
+    <div class="profile">
+      <img [src]="usuario.imagenUrl || 'https://i.pravatar.cc/100?img=3'" alt="Foto de perfil">
+      <h3>{{ usuario.nombre }}</h3>
+      <p>
+        Edad: {{ usuario.edad }}<br>
+        Peso: {{ usuario.peso }}kg<br>
+        Altura: {{ usuario.altura }}m
+      </p>
+    </div>
+  </aside>
+</main>
+

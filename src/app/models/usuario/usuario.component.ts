@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'app-usuario',
-  standalone: true,
-  imports: [],
-  templateUrl: './usuario.component.html',
-  styleUrl: './usuario.component.css'
-})
-export class UsuarioComponent {
-
+export interface Usuario {
+  id?: number;
+  nombre: string;
+  email: string;
+  imagenUrl?: string;
+  edad?: number;
+  peso?: number;
+  altura?: number;
 }
+
+
+
+
