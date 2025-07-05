@@ -5,17 +5,14 @@
   </nav>
 </header>
 
-<main>
+<main class="dashboard-layout">
   <aside class="left-panel">
-    <nav>
-      <a routerLink="/dashboard">🏠 Inicio</a>
-      <a routerLink="/habitos">📅 Hábitos</a>
-      <a routerLink="/notificaciones">🔔 Notificaciones</a>
-      <a routerLink="/configuracion">⚙️ Configuración</a>
-      <a routerLink="/estadisticas">📊 Estadísticas</a>
-      <a routerLink="/progreso">📈 Progreso</a>
-      <a routerLink="/blog">📝 Blog</a>
-    </nav>
+    <h6>Mis hábitos registrados</h6>
+    <ul>
+      <li *ngFor="let habito of habitos">
+        📌 {{ habito.habitoNombre }} - {{ habito.fecha }}
+      </li>
+    </ul>
   </aside>
 
   <section class="dashboard-main">
@@ -48,4 +45,6 @@
     </div>
   </aside>
 </main>
+
+
 

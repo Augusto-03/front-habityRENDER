@@ -39,23 +39,28 @@ export class LoginComponent {
   }
 
   iniciarSesion() {
-    if (this.formulario.invalid) {
-      this.formulario.markAllAsTouched();
-      return;
-    }
+  if (this.formulario.invalid) {
+    this.formulario.markAllAsTouched();
+    return;
+  }
 
-    const datos = this.formulario.value;
+  const datos = this.formulario.value;
 
-    this.usuarioService.login(datos).subscribe({
-      next: (respuesta: { token: string; }) => {
-        localStorage.setItem('token', respuesta.token);
-        this.snack.open('Sesión iniciada correctamente', 'Cerrar', { duration: 3000 });
+  this.usuarioService.login(datos).subscribe({
+    next: (respuesta: { token: string }) => {
+      localStorage.setItem('token', respuesta.token);
+
+      this.snack.open('Sesión iniciada correctamente', 'Cerrar', { duration: 3000 });
+
+      setTimeout(() => {
         this.router.navigate(['/dashboard']);
-      },
-      error: () => {
-        this.snack.open('Credenciales incorrectas', 'Cerrar', { duration: 3000 });
+      }, 100);
+    },
+    error: () => {
+      this.snack.open('Credenciales incorrectas', 'Cerrar', { duration: 3000 });
       }
     });
   }
+
 }
 

@@ -1,0 +1,38 @@
+<div class="container">
+  <h1>Agregar nuevo hábito</h1>
+
+  <form [formGroup]="formulario" (ngSubmit)="crearHabito()" class="form">
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre del hábito</mat-label>
+      <input matInput formControlName="nombre" placeholder="Ej: Leer">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Descripción</mat-label>
+      <textarea matInput rows="4" formControlName="descripcion" placeholder="Detalles sobre el hábito"></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Frecuencia (veces por semana)</mat-label>
+      <input matInput type="number" formControlName="frecuencia" min="1">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+  <mat-label>Tipo de hábito</mat-label>
+  <mat-select formControlName="tipoHabitoId">
+    <mat-option *ngIf="tiposHabito.length === 0" disabled>
+      No hay tipos disponibles
+    </mat-option>
+    <mat-option *ngFor="let tipo of tiposHabito" [value]="tipo.id">
+      {{ tipo.nombre }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="formulario.invalid">
+      Crear hábito
+    </button>
+  </form>
+</div>
+
+

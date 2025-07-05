@@ -1,0 +1,14 @@
+<div style="padding: 24px;">
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <h5>Mis hábitos</h5>
+    <button mat-raised-button color="primary" (click)="irARegistrarHabito()">+ Nuevo hábito</button>
+  </div>
+
+  <ul>
+    <li *ngFor="let h of habitos">
+      {{ h.nombre }} - {{ h.descripcion }} (Frecuencia: {{ h.frecuencia }})
+    </li>
+  </ul>
+</div>
+
+

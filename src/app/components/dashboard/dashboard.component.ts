@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
   usuario: any = {};
+  habitos: any[] = [];
 
   async ngOnInit() {
     const token = localStorage.getItem('token');
@@ -21,13 +22,26 @@ export class DashboardComponent implements OnInit {
     }
 
     try {
-      const res = await fetch(`http://localhost:8080/api/usuarios/perfilObtener`, {
+      const perfilRes = await fetch(`http://localhost:8080/api/usuarios/perfilObtener`, {
         headers: { 'Authorization': 'Bearer ' + token }
       });
 
-      if (res.ok) {
-        const usuario = await res.json();
-        this.usuario = usuario;
+      if (perfilRes.ok) {
+        this.usuario = await perfilRes.json();
+        console.log('👤 Usuario cargado:', this.usuario);
+
+        // Obtener hábitos registrados
+        const habitosRes = await fetch(`http://localhost:8080/api/registro-habitos/usuario/${this.usuario.id}`, {
+          headers: { 'Authorization': 'Bearer ' + token }
+        });
+
+        if (habitosRes.ok) {
+          this.habitos = await habitosRes.json();
+          console.log('📌 Hábitos registrados:', this.habitos);
+        } else {
+          console.error('Error cargando hábitos del usuario');
+        }
+
       } else {
         alert('No se pudo cargar el perfil.');
       }
@@ -42,4 +56,5 @@ export class DashboardComponent implements OnInit {
     window.location.href = '/login';
   }
 }
+
 

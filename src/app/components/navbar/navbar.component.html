@@ -1,11 +1,13 @@
-<mat-toolbar style="background-color: #1976d2; color: white;">
-  <mat-icon>account_circle</mat-icon>
-  <span style="margin-left: 10px; font-weight: bold;">Módulo Usuario</span>
-  <span class="spacer"></span>
+<nav class="navbar">
+  <div class="navbar-left">
+    <a routerLink="/dashboard">🏠 Inicio</a>
+    <a routerLink="/ver-habitos">📅 Hábitos</a>
+    <a routerLink="/notificaciones">🔔 Notificaciones</a>
+    <a routerLink="/configuracion">⚙️ Configuración</a>
+    <a routerLink="/estadisticas">📊 Estadísticas</a>
+    <a routerLink="/progreso">📈 Progreso</a>
+    <a routerLink="/blog">📝 Blog</a>
+  </div>
+</nav>
 
-  <button mat-icon-button [routerLink]="['/usuarios-registrar']" matTooltip="Registrar usuario">
-    <mat-icon>person_add</mat-icon>
-  </button>
-
-</mat-toolbar>
 

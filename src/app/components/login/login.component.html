@@ -1,21 +1,27 @@
-<form [formGroup]="formulario" style="max-width: 400px; margin: auto; padding: 20px;">
-  <h2 style="text-align: center;">Iniciar sesión</h2>
+<form 
+  [formGroup]="formulario" 
+  (ngSubmit)="iniciarSesion()"
+  style="max-width: 400px; margin: auto; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-radius: 12px;"
+>
+  <h2 style="text-align: center; margin-bottom: 24px;">Iniciar sesión</h2>
 
-  <mat-form-field appearance="fill" style="width: 100%;">
+  <mat-form-field appearance="outline" style="width: 100%; margin-bottom: 16px;">
     <mat-label>Email</mat-label>
-    <input matInput formControlName="email" type="email">
+    <input matInput formControlName="email" type="email" placeholder="ejemplo@correo.com">
   </mat-form-field>
 
-  <mat-form-field appearance="fill" style="width: 100%;">
+  <mat-form-field appearance="outline" style="width: 100%; margin-bottom: 24px;">
     <mat-label>Contraseña</mat-label>
-    <input matInput formControlName="password" type="password">
+    <input matInput formControlName="password" type="password" placeholder="••••••••">
   </mat-form-field>
 
-  <div style="margin-top: 16px; display: flex; justify-content: space-between;">
-    <button mat-raised-button color="primary" (click)="iniciarSesion()" [disabled]="formulario.invalid">
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <button mat-raised-button color="primary" type="submit" [disabled]="formulario.invalid">
       Iniciar sesión
     </button>
-    <button mat-button routerLink="/registro">¿No tienes cuenta?</button>
+    <a mat-button routerLink="/registro">¿No tienes cuenta?</a>
   </div>
 </form>
+
+
 
