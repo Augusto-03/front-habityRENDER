@@ -9,28 +9,24 @@
   <aside class="left-panel">
     <h6>Mis hábitos registrados</h6>
     <ul>
-      <li *ngFor="let habito of habitos">
-        📌 {{ habito.habitoNombre }} - {{ habito.fecha }}
+      <li *ngFor="let habito of habitos.slice(0, 5)" class="habito-pill">
+        {{ habito.nombre }}
       </li>
     </ul>
+    <a routerLink="/ver-habitos" style="font-size: 13px; color: #007bff;">Ver todos los hábitos →</a>
   </aside>
 
   <section class="dashboard-main">
-    <h1>Bienvenido, {{ usuario.nombre || '👤' }} 👋</h1>
-    <div class="dashboard-cards">
-      <div class="card">
-        <h3>Edad</h3>
-        <p>{{ usuario.edad }} años</p>
-      </div>
-      <div class="card">
-        <h3>Peso</h3>
-        <p>{{ usuario.peso }} kg</p>
-      </div>
-      <div class="card">
-        <h3>Altura</h3>
-        <p>{{ usuario.altura }} m</p>
-      </div>
-    </div>
+    <h1>Progreso de tus hábitos 📈</h1>
+
+    <app-registro-habito-tracker
+      *ngFor="let habito of habitos.slice(0, 1)"
+      [habito]="habito"
+    ></app-registro-habito-tracker>
+
+    <div class="ver-progreso-container">
+      <a routerLink="/progreso-habito" class="ver-progreso-link">Ver todo el progreso →</a>
+  </div>
   </section>
 
   <aside class="right-panel">
@@ -44,7 +40,8 @@
       </p>
     </div>
   </aside>
-</main>
+</main> 
+
 
 
 

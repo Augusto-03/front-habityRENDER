@@ -28,7 +28,11 @@ export class ListarHabitoComponent implements OnInit {
 
     this.http.get<any[]>('http://localhost:8080/api/habitos', { headers }).subscribe({
       next: data => {
+        console.log('Respuesta del backend:', data); // 👈 Verás los hábitos en consola
+        console.log('Cantidad recibida:', Array.isArray(data) ? data.length : Object.keys(data).length);
+
         this.habitos = Array.isArray(data) ? data : Object.values(data);
+        console.log('this.habitos:', this.habitos);
       },
       error: () => {
         alert('Error cargando hábitos');

@@ -1,0 +1,35 @@
+.post {
+  background: #f7f9fc;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+
+.post span.type {
+  display: inline-block;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+}
+
+.logro {
+  background-color: #00c58e33;
+  color: #00a373;
+}
+
+.ayuda {
+  background-color: #ffcccc;
+  color: #b00020;
+}
+
+.comentario {
+  background-color: #cce5ff;
+  color: #007BFF;
+}
+
+.post p {
+  font-size: 15px;
+  line-height: 1.4;
+}

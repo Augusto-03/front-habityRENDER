@@ -5,10 +5,17 @@
   font-family: 'Poppins', sans-serif;
 }
 
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
 body {
   background: #f0f2f5;
   color: #333;
 }
+
 
 header {
   background: #fff;
@@ -99,6 +106,19 @@ section.dashboard-main {
   margin-top: 10px;
   font-size: 18px;
 }
+
+.habito-pill {
+  display: inline-block;
+  background-color: #e0f0ff; 
+  color: #007bff;         
+  padding: 6px 12px;
+  margin: 6px 0;
+  border-radius: 20px;      
+  font-size: 14px;
+  font-weight: 500;
+  list-style: none;     
+}
+
 
 @media (max-width: 768px) {
   main {

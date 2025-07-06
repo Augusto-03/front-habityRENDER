@@ -19,12 +19,12 @@ export class AppComponent {
   mostrarNavbar = true;
 
   constructor(private router: Router) {
-    this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe((event: any) => {
-        const ruta = event.urlAfterRedirects;
-        this.mostrarNavbar = !['/', '/registro'].includes(ruta);
-      });
+  this.router.events
+    .pipe(filter(event => event instanceof NavigationEnd))
+    .subscribe((event: NavigationEnd) => {
+      const rutasSinNavbar = ['/login', '/registro','/' ];
+      this.mostrarNavbar = !rutasSinNavbar.includes(event.url);
+    });
   }
 }
 

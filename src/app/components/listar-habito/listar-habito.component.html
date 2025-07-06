@@ -4,11 +4,12 @@
     <button mat-raised-button color="primary" (click)="irARegistrarHabito()">+ Nuevo hábito</button>
   </div>
 
-  <ul>
-    <li *ngFor="let h of habitos">
-      {{ h.nombre }} - {{ h.descripcion }} (Frecuencia: {{ h.frecuencia }})
-    </li>
-  </ul>
+  <div *ngFor="let h of habitos" style="margin-top: 16px; padding: 16px; border: 1px solid #ccc; border-radius: 8px;">
+    <h6>{{ h.nombre }}</h6>
+    <p>{{ h.descripcion }}</p>
+    <p><strong>Frecuencia:</strong> {{ h.frecuencia }}</p>
+  </div>
 </div>
+
 
 

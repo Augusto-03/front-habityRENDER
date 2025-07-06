@@ -5,7 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { UsuarioService } from '../../services/usuario.service';
 import { RegistroUsuario } from '../../models/registro-usuario/registro-usuario.component';
 
@@ -38,7 +38,8 @@ export class RegistrarUsuarioComponent {
   constructor(
     private fb: FormBuilder,
     private usuarioService: UsuarioService,
-    private snack: MatSnackBar
+    private snack: MatSnackBar,
+    private router: Router
   ) {
     this.formulario = this.fb.group({
       nombre: ['', [Validators.required]],
@@ -72,8 +73,10 @@ export class RegistrarUsuarioComponent {
       next: () => {
         this.snack.open('Usuario registrado exitosamente', 'Cerrar', { duration: 3000 });
         this.formulario.reset();
+
+        this.router.navigate(['/login']); //Redirección al login
       },
-      error: () => {
+        error: () => {
         this.snack.open('Error al registrar usuario', 'Cerrar', { duration: 3000 });
       }
     });

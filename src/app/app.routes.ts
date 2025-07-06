@@ -6,6 +6,11 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { authGuard } from './guards/auth.guard';
 import { RegistrarHabitoComponent } from './components/registrar-habito/registrar-habito.component';
 import { ListarHabitoComponent } from './components/listar-habito/listar-habito.component';
+import { RegistroHabitoComponent } from './models/registro-habito/registro-habito.component';
+import { RegistroHabitoTrackerComponent } from './components/registro-habito-tracker/registro-habito-tracker.component';
+import { ProgresoHabitoComponent } from './components/progreso-habito/progreso-habito.component';
+import { EstadisticasComponent } from './components/estadisticas/estadisticas.component';
+import { CommunityComponent } from './components/comunity/comunity.component';
 
 
 export const routes: Routes = [
@@ -26,7 +31,25 @@ export const routes: Routes = [
     path: 'ver-habitos',
     component: ListarHabitoComponent,
     canActivate: [authGuard]
+  },
+  {
+    path: 'progreso-habito',
+    component: RegistroHabitoTrackerComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'progreso-habito',
+    component: ProgresoHabitoComponent
+  },
+  {
+    path: 'estadisticas',
+    component: EstadisticasComponent
+  },
+  {
+    path: 'comunidad',
+    component: CommunityComponent
   }
+
 ];
 
 

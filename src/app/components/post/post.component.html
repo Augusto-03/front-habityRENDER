@@ -1,0 +1,6 @@
+<div class="post">
+  <span class="type" [ngClass]="type">
+    {{ type === 'logro' ? '✅ Logro' : type === 'ayuda' ? '🆘 Ayuda' : '🗨️ Comentario' }}
+  </span>
+  <p>{{ content }}</p>
+</div>

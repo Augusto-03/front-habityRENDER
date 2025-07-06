@@ -1,0 +1,37 @@
+.habit-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.monthly-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.day-box {
+  width: 30px;
+  height: 30px;
+  background: #eee;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.day-box.completed {
+  background-color: #28a745;
+  color: white;
+  font-weight: bold;
+}
+
+.paginacion {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

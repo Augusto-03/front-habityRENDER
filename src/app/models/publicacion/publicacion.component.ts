@@ -1,12 +1,9 @@
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'app-publicacion',
-  standalone: true,
-  imports: [],
-  templateUrl: './publicacion.component.html',
-  styleUrl: './publicacion.component.css'
-})
-export class PublicacionComponent {
-
+export interface Publicacion {
+  id?: number;
+  contenido: string;
+  tipo: 'logro' | 'ayuda' | 'comentario';
+  fechaCreacion?: string;
+  usuarioId?: number;
 }
+
+

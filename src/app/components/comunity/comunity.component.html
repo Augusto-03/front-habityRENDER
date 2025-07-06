@@ -1,0 +1,21 @@
+<main>
+  <h1>💬 Comunidad de hábitos</h1>
+
+  <form (ngSubmit)="publicar()">
+    <textarea [(ngModel)]="postContent" name="postContent" placeholder="¿Qué quieres compartir hoy?" required></textarea>
+
+    <div class="type-select">
+      <button type="button" class="type-logro" (click)="setType('logro')">✅ Cumplí mi hábito</button>
+      <button type="button" class="type-ayuda" (click)="setType('ayuda')">🆘 Necesito ayuda</button>
+      <button type="button" class="type-comentario" (click)="setType('comentario')">🗨️ Comentario</button>
+    </div>
+
+    <button type="submit" class="submit-btn">Publicar</button>
+  </form>
+
+  <div>
+    <app-post *ngFor="let post of posts" [content]="post.content" [type]="post.type"></app-post>
+  </div>
+</main>
+
+

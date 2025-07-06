@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { RegistroHabitoTrackerComponent } from '../registro-habito-tracker/registro-habito-tracker.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, RegistroHabitoTrackerComponent],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
@@ -30,17 +31,17 @@ export class DashboardComponent implements OnInit {
         this.usuario = await perfilRes.json();
         console.log('👤 Usuario cargado:', this.usuario);
 
-        // Obtener hábitos registrados
-        const habitosRes = await fetch(`http://localhost:8080/api/registro-habitos/usuario/${this.usuario.id}`, {
-          headers: { 'Authorization': 'Bearer ' + token }
+        const habitosRes = await fetch(`http://localhost:8080/api/habitos`, {
+          headers: { 'Authorization': 'Bearer ' + token } 
         });
 
         if (habitosRes.ok) {
           this.habitos = await habitosRes.json();
           console.log('📌 Hábitos registrados:', this.habitos);
         } else {
-          console.error('Error cargando hábitos del usuario');
+          console.error('Error cargando hábitos');
         }
+
 
       } else {
         alert('No se pudo cargar el perfil.');

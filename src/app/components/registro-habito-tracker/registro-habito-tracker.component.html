@@ -1,0 +1,21 @@
+<div class="habit-card" *ngIf="habito">
+  <h3>{{ habito.nombre }}</h3>
+  <p>{{ habito.descripcion }}</p>
+
+  <div class="monthly-grid">
+    <div
+      *ngFor="let dia of bloques[bloqueActual]"
+      class="day-box"
+      [class.completed]="estaCumplido(dia)"
+      (click)="toggleFecha(dia)">
+      {{ dia.getDate() }}
+    </div>
+  </div>
+
+  <div class="paginacion">
+    <button (click)="cambiarBloque(-1)" [disabled]="bloqueActual === 0">⬅️</button>
+    <span>Bloque {{ bloqueActual + 1 }}</span>
+    <button (click)="cambiarBloque(1)" [disabled]="bloqueActual === bloques.length - 1">➡️</button>
+  </div>
+</div>
+
