@@ -62,7 +62,11 @@ export class RegistrarHabitoComponent implements OnInit {
   if (this.formulario.invalid) return;
 
   const token = localStorage.getItem('token');
-  const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  const headers = new HttpHeaders({
+    'Authorization': `Bearer ${token}`,
+    'Content-Type': 'application/json'
+  });
+
 
   const body = {
     nombre: this.formulario.value.nombre,
