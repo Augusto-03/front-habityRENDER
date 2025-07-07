@@ -51,7 +51,7 @@ export class RegistrarHabitoComponent implements OnInit {
       next: tipos => this.tiposHabito = tipos,
       error: err => {
         console.error('Error cargando tipos de hábito', err);
-        this.snack.open('No se pudieron cargar los tipos de hábito ❌', 'Cerrar', { duration: 3000 });
+        this.snack.open('No se pudieron cargar los tipos de hábito', 'Cerrar', { duration: 3000 });
         console.log('Tipos recibidos:', this.tiposHabito);
 
       }
@@ -68,22 +68,24 @@ export class RegistrarHabitoComponent implements OnInit {
     nombre: this.formulario.value.nombre,
     descripcion: this.formulario.value.descripcion,
     frecuencia: this.formulario.value.frecuencia,
-    tipo: { id: this.formulario.value.tipoHabitoId }, // ✅ CORRECTO
+    tipo: { id: this.formulario.value.tipoHabitoId },
     completado: false,
     activo: true
   };
 
   this.http.post('http://localhost:8080/api/habitos', body, { headers }).subscribe({
     next: () => {
-      this.snack.open('Hábito creado correctamente ✅', 'Cerrar', { duration: 3000 });
+      this.snack.open('Hábito creado correctamente', 'Cerrar', { duration: 3000 });
       this.router.navigate(['/ver-habitos']);
     },
     error: err => {
-      this.snack.open('Error al crear hábito ❌', 'Cerrar', { duration: 3000 });
+      this.snack.open('Error al crear hábito', 'Cerrar', { duration: 3000 });
       console.error(err);
       }
     });
   }
 
 }
+
+
 

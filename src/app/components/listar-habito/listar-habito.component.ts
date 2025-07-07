@@ -43,6 +43,10 @@ export class ListarHabitoComponent implements OnInit {
   irARegistrarHabito() {
     this.router.navigate(['/registrar-habito']);
   }
+  irARegistrarTipo() {
+  this.router.navigate(['/registrar-tipo']);
+  }
+
 }
 
 

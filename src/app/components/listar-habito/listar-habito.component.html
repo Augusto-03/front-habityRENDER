@@ -1,7 +1,11 @@
 <div style="padding: 24px;">
   <div style="display: flex; justify-content: space-between; align-items: center;">
     <h5>Mis hábitos</h5>
-    <button mat-raised-button color="primary" (click)="irARegistrarHabito()">+ Nuevo hábito</button>
+  
+    <div style="display: flex; gap: 8px;">
+      <button mat-raised-button color="primary" (click)="irARegistrarHabito()">+ Nuevo hábito</button>
+      <button mat-raised-button color="primary" (click)="irARegistrarTipo()">+ Nuevo Tipo de hábito</button>
+    </div>
   </div>
 
   <div *ngFor="let h of habitos" style="margin-top: 16px; padding: 16px; border: 1px solid #ccc; border-radius: 8px;">
@@ -10,6 +14,8 @@
     <p><strong>Frecuencia:</strong> {{ h.frecuencia }}</p>
   </div>
 </div>
+
+
 
 
 

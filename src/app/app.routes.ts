@@ -11,6 +11,7 @@ import { RegistroHabitoTrackerComponent } from './components/registro-habito-tra
 import { ProgresoHabitoComponent } from './components/progreso-habito/progreso-habito.component';
 import { EstadisticasComponent } from './components/estadisticas/estadisticas.component';
 import { CommunityComponent } from './components/comunity/comunity.component';
+import { RegistrarTipoComponent } from './components/registrar-tipo/registrar-tipo.component';
 
 
 export const routes: Routes = [
@@ -48,7 +49,16 @@ export const routes: Routes = [
   {
     path: 'comunidad',
     component: CommunityComponent
-  }
+  },
+  {
+    path: 'comunidad',
+    component: CommunityComponent
+  },
+  {
+    path: 'registrar-tipo',
+    component: RegistrarTipoComponent,
+    canActivate: [authGuard]
+  },
 
 ];
 

@@ -1,0 +1,17 @@
+<div class="container">
+  <h2>Registrar nuevo tipo de hábito</h2>
+
+  <form [formGroup]="form" (ngSubmit)="guardar()">
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre del tipo</mat-label>
+      <input matInput formControlName="nombre" placeholder="Ej: Salud" />
+    </mat-form-field>
+
+    <div style="margin-top: 16px;">
+      <button mat-button type="button" (click)="cancelar()">Cancelar</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Guardar</button>
+    </div>
+  </form>
+</div>
+
+
